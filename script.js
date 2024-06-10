@@ -1,10 +1,11 @@
 let default_grid_dimension = 16;
+let random_color = false;
 
 // Get the Div that I will be putting all of my squares in to
 const grid_container = document.querySelector("#grid-container");
 
 function createGrid(num_squares) {
-    let pixel_length = (960 / num_squares) + "px";
+    let pixel_length = (500 / num_squares) + "px";
     
     for (let index = 0; index < num_squares*num_squares; index++){
         let grid_square = document.createElement("div");
