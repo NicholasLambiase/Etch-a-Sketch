@@ -19,13 +19,19 @@ function createGrid(num_squares) {
     const grid_squares = document.querySelectorAll(".grid-square");
     grid_squares.forEach(sqr => {
         sqr.addEventListener("mouseover", () => {
-            sqr.style.backgroundColor = 'black';
+            if (random_color) {
+                sqr.style.backgroundColor = getRandomColor();
+                console.log(getRandomColor())
+            }
+            else 
+                sqr.style.backgroundColor = 'black';
         });
     });
 }
     
 const clear_btn = document.querySelector("#clear-btn");
 clear_btn.addEventListener("click", () => {
+    random_color = false;
     let grid_squares = document.querySelectorAll(".grid-square");
     grid_squares.forEach(sqr => {
         sqr.style.backgroundColor = "white";
@@ -38,6 +44,20 @@ new_dimensions_btn.addEventListener("click", () => {
     document.querySelectorAll(".grid-square").forEach(sqr => sqr.remove());
     createGrid(dimension);
 });
+
+const rainbow_btn = document.querySelector("#random-color-btn");
+rainbow_btn.addEventListener("click", () => {
+    alert("Random Colors Selected");
+    random_color = true;
+});
+
+function getRandomColor() {
+    let hex_values = "0123456789ABCDEF";
+    let color = "#";
+    for (let index = 0; index < 6; index++)
+        color += hex_values[Math.floor(Math.random()*16)];
+    return color;
+}
 
 // Default Execution
 createGrid(default_grid_dimension);
