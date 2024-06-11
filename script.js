@@ -19,10 +19,8 @@ function createGrid(num_squares) {
     const grid_squares = document.querySelectorAll(".grid-square");
     grid_squares.forEach(sqr => {
         sqr.addEventListener("mouseover", () => {
-            if (random_color) {
+            if (random_color)
                 sqr.style.backgroundColor = getRandomColor();
-                console.log(getRandomColor())
-            }
             else 
                 sqr.style.backgroundColor = 'black';
         });
@@ -47,7 +45,6 @@ new_dimensions_btn.addEventListener("click", () => {
 
 const rainbow_btn = document.querySelector("#random-color-btn");
 rainbow_btn.addEventListener("click", () => {
-    alert("Random Colors Selected");
     random_color = true;
 });
 
@@ -61,6 +58,3 @@ function getRandomColor() {
 
 // Default Execution
 createGrid(default_grid_dimension);
-
-
-
